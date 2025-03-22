@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+require('dotenv').config()
 const app = express();
 const PORT = 3000;
 //routes
@@ -7,7 +8,7 @@ const rootRouter = require("./routes/index");
 const { default: mongoose } = require("mongoose");
 
 mongoose.connect(
-    "mongodb+srv://yewaleayush28:xSb3uWOh652NkiM3@cluster0.v6mox.mongodb.net/?retryWrites=true&w=majority"
+    process.env.MONGODB_URI
 );
 
 app.use(cors());
